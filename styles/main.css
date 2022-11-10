@@ -1,0 +1,36 @@
+.page-layout {
+  display: flex;
+  flex-direction: row;
+}
+
+.infomation-box {
+  display: flex;
+  align-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  /* margin-top: 0%; */
+  margin-right: 14%;
+  margin-left: 6%;
+}
+
+.grid-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 600px;
+}
+.grid div {
+  border: 1px black solid;
+  height: 70px;
+  width: 70px;
+}
+.grid div.frog {
+  background-image: url(/images/frog.webp);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
