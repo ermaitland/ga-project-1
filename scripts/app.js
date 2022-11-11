@@ -1,8 +1,11 @@
 function init() {
+  const start = document.querySelector(".start");
   const grid = document.querySelector(".grid");
   const cells = [];
+  levelGoal = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   let frogPosition = 94;
-  let obj1Position = 70;
+  let guardPosition = 70;
+  let maskPosition = 46;
 
   const width = 10;
   const cellCount = width * width;
@@ -17,15 +20,27 @@ function init() {
   }
   createGrid();
 
-  function addFrog(frogPosition) {
-    cells[frogPosition].classList.add("frog");
-    console.log("frog Added to" + frogPosition);
+  function startGame() {
+    start.disabled = true;
+    addObj(frogPosition, "frog");
+    addObj(guardPosition, "guard");
+    addObj(maskPosition, "mask");
+    levelComplete();
+    movement(guardPosition, "guard", 79, 70, 700);
+    movement(maskPosition, "mask", 59, 40, 100);
   }
-  addFrog(frogPosition);
 
-  function removeFrog(frogPosition) {
-    cells[frogPosition].classList.remove("frog");
-    console.log("frog removed from" + frogPosition);
+  function levelComplete() {
+    let goalPosition = Math.floor(Math.random() * levelGoal.length);
+    cells[goalPosition].classList.add("goal");
+  }
+
+  function addObj(position, item) {
+    cells[position].classList.add(item);
+  }
+
+  function removeObj(position, item) {
+    cells[position].classList.remove(item);
   }
 
   function moveFrog(e) {
@@ -48,44 +63,52 @@ function init() {
     addFrog(frogPosition);
   }
 
-  function addObj1(position) {
-    cells[position].classList.add("guard");
+  // let go;
+  function movement(position, item, endPosition, startPosition, interval) {
+    setInterval(() => {
+      if (position < endPosition) {
+        position++;
+        addObj(position, item);
+        setTimeout(() => {
+          removeObj(position - 1, item);
+        }, interval - 100);
+      } else if (position === endPosition) {
+        removeObj(position, item);
+        position = startPosition;
+        addObj(position, item);
+      }
+    }, interval);
   }
-  addObj1(obj1Position);
 
-  function removeObj1(position) {
-    cells[position].classList.remove("guard");
-  }
+  // function addObj2(position) {
+  //   cells[position].classList.add("mask");
+  // }
+  // addObj1(obj1Position);
+
+  // function removeObj2(position) {
+  //   cells[position].classList.remove("mask");
+  // }
   // removeObj1(obj1Position1);
 
-  function guardMovement() {
-    setInterval(() => {
-      if (obj1Position + 1 < 80) {
-        obj1Position++;
-        addObj1(obj1Position);
-        setTimeout(() => {
-          removeObj1(obj1Position - 1);
-        }, 1990);
-      } else if (obj1Position === 79) {
-        obj1Position = 70;
-        addObj1(obj1Position);
-        setTimeout(() => {
-          removeObj1(79);
-        }, 2000);
-      }
-    }, 2000);
-  }
-  guardMovement();
+  // function maskMovement() {
+  //   setInterval(() => {
+  //     if (obj2Position + 1 < 50) {
+  //       obj2Position++;
+  //       addObj2(obj2Position);
+  //       setTimeout(() => {
+  //         removeObj2(obj2Position - 1);
+  //       }, 990);
+  //     } else if (obj2Position === 49) {
+  //       obj2Position = 40;
+  //       addObj2(obj2Position);
+  //       setTimeout(() => {
+  //         removeObj2(49);
+  //       }, 1000);
+  //     }
+  //   }, 1000);
+  // }
 
-  function collision() {
-    if (frogPosition === obj1Position) {
-      cells[frogPosition].classList.remove("frog");
-      cells[obj1Position].classList.remove("guard");
-      cells[frogPosition].classList.add("collision");
-    }
-  }
-  collision();
-
+  start.addEventListener("click", startGame);
   document.addEventListener("keyup", moveFrog);
 }
 window.addEventListener("DOMContentLoaded", init);

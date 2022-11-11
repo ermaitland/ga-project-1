@@ -43,8 +43,18 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
+.grid div.mask {
+  background-image: url(/images/mask.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
 .grid div.collision {
   background-image: url(/images/explosion.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.grid div.goal {
+  background-image: url(/images/images.jpeg);
   background-repeat: no-repeat;
   background-size: contain;
 }
