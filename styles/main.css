@@ -1,14 +1,25 @@
+h1 {
+  text-align: center;
+}
+
 .page-layout {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .infomation-box {
   display: flex;
-  align-content: flex-start;
-  align-items: flex-start;
+  align-content: center;
+  align-items: center;
   flex-direction: column;
   /* margin-top: 0%; */
+  /* margin-right: 12%;
+  margin-left: 6%; */
+  justify-content: center;
+}
+.playing {
+  align-content: flex-start;
+  align-items: flex-start;
   margin-right: 12%;
   margin-left: 6%;
 }

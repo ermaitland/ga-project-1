@@ -5,6 +5,8 @@ function init() {
   const grid = document.querySelector(".grid");
   const numberOfLives = document.querySelector(".lives");
   const currentLevel = document.querySelector(".current-level");
+  const pageSetUp = document.querySelector(".page-layout");
+  const infoBox = document.querySelector(".infomation-box");
   const cells = [];
   const levelGoal = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   let frogPosition = 94;
@@ -15,17 +17,18 @@ function init() {
   const width = 10;
   const cellCount = width * width;
 
-  function createGrid() {
-    for (let i = 0; i < cellCount; i++) {
-      const cell = document.createElement("div");
-      // could add if statement to create the data-row;
-      cell.setAttribute = ("data-index", i);
-      grid.appendChild(cell);
-      cells.push(cell);
-    }
-  }
-
   function beginnerLevel() {
+    function createGrid() {
+      for (let i = 0; i < cellCount; i++) {
+        const cell = document.createElement("div");
+        // could add if statement to create the data-row;
+        cell.setAttribute = ("data-index", i);
+        grid.appendChild(cell);
+        cells.push(cell);
+        pageSetUp.style.flexDirection = "row";
+        infoBox.classList.add("playing");
+      }
+    }
     createGrid();
     beginner.disabled = true;
     intermediate.disabled = true;
@@ -41,6 +44,17 @@ function init() {
   }
 
   function intermediateLevel() {
+    function createGrid() {
+      for (let i = 0; i < cellCount; i++) {
+        const cell = document.createElement("div");
+        // could add if statement to create the data-row;
+        cell.setAttribute = ("data-index", i);
+        grid.appendChild(cell);
+        cells.push(cell);
+        pageSetUp.style.flexDirection = "row";
+        infoBox.classList.add("playing");
+      }
+    }
     createGrid();
     currentLevel.textContent = "Intermediate";
     beginner.disabled = true;
@@ -54,6 +68,17 @@ function init() {
   }
 
   function expertLevel() {
+    function createGrid() {
+      for (let i = 0; i < cellCount; i++) {
+        const cell = document.createElement("div");
+        // could add if statement to create the data-row;
+        cell.setAttribute = ("data-index", i);
+        grid.appendChild(cell);
+        cells.push(cell);
+        pageSetUp.style.flexDirection = "row";
+        infoBox.classList.add("playing");
+      }
+    }
     createGrid();
     currentLevel.textContent = "Expert!";
     beginner.disabled = true;
@@ -97,30 +122,22 @@ function init() {
       case 37:
         if (x > 0) frogPosition--;
         finishLevel();
-        collision(frogPosition, "guard");
-        collision(frogPosition, "boss");
-        collision(frogPosition, "mask");
+        frogCollision();
         break;
       case 38:
         if (y > 0) frogPosition -= width;
         finishLevel();
-        collision(frogPosition, "guard");
-        collision(frogPosition, "boss");
-        collision(frogPosition, "mask");
+        frogCollision();
         break;
       case 39:
         if (x < width - 1) frogPosition++;
         finishLevel();
-        collision(frogPosition, "guard");
-        collision(frogPosition, "boss");
-        collision(frogPosition, "mask");
+        frogCollision();
         break;
       case 40:
         if (y < width - 1) frogPosition += width;
         finishLevel();
-        collision(frogPosition, "guard");
-        collision(frogPosition, "boss");
-        collision(frogPosition, "mask");
+        frogCollision();
         break;
       default:
         console.log("unidentified move");
@@ -138,7 +155,7 @@ function init() {
     interval
   ) {
     go = setInterval(() => {
-      if (position < endPosition - distance) {
+      if (position <= endPosition - distance) {
         addObj(position, item);
         position = position + distance;
         addObj(position, item);
@@ -164,10 +181,19 @@ function init() {
   function collision(position, item) {
     if (cells[position].classList.contains(item)) {
       cells[position].classList.add("collision");
+      setTimeout(() => {
+        cells[position].classList.remove("collision");
+      }, 1500);
       lives--;
       numberOfLives.textContent = lives;
       stopGame();
     }
+  }
+  function frogCollision() {
+    collision(frogPosition, "guard");
+    collision(frogPosition, "doll");
+    collision(frogPosition, "mask");
+    collision(frogPosition, "boss");
   }
 
   beginner.addEventListener("click", beginnerLevel);
