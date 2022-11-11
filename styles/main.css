@@ -63,3 +63,8 @@
   background-repeat: no-repeat;
   background-size: contain;
 }
+.grid div.doll {
+  background-image: url(/images/squid_doll.jpeg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
