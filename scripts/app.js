@@ -2,10 +2,13 @@ function init() {
   const start = document.querySelector(".start");
   const grid = document.querySelector(".grid");
   const cells = [];
-  levelGoal = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const levelGoal = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   let frogPosition = 94;
   let guardPosition = 70;
   let maskPosition = 46;
+  let bossPosition = 12;
+  let goalPosition;
+  let lives = 2;
 
   const width = 10;
   const cellCount = width * width;
@@ -13,7 +16,7 @@ function init() {
   function createGrid() {
     for (let i = 0; i < cellCount; i++) {
       const cell = document.createElement("div");
-      cell.textContent = i;
+      cell.setAttribute = ("data-index", i);
       grid.appendChild(cell);
       cells.push(cell);
     }
@@ -25,13 +28,22 @@ function init() {
     addObj(frogPosition, "frog");
     addObj(guardPosition, "guard");
     addObj(maskPosition, "mask");
+    addObj(bossPosition, "boss");
     levelComplete();
-    movement(guardPosition, "guard", 79, 70, 700);
-    movement(maskPosition, "mask", 59, 40, 100);
+    movement(guardPosition, "guard", 79, 70, 1, 700);
+    movement(maskPosition, "mask", 58, 40, 2, 100);
+    movement(bossPosition, "boss", 28, 10, 2, 700);
+  }
+  function stopGame() {
+    if (lives === 0);
+    {
+      const gameOverMessage = document.createElement("h1");
+      gameOverMessage.textContent = "GameOver!";
+    }
   }
 
   function levelComplete() {
-    let goalPosition = Math.floor(Math.random() * levelGoal.length);
+    goalPosition = Math.floor(Math.random() * levelGoal.length);
     cells[goalPosition].classList.add("goal");
   }
 
@@ -44,40 +56,81 @@ function init() {
   }
 
   function moveFrog(e) {
-    removeFrog(frogPosition);
+    removeObj(frogPosition, "frog");
     const x = frogPosition % width;
     const y = Math.floor(frogPosition / width);
     switch (e.keyCode) {
       case 37:
         if (x > 0) frogPosition--;
+        finishLevel();
+        collision(frogPosition, "guard");
+        collision(frogPosition, "boss");
+        collision(frogPosition, "mask");
         break;
       case 38:
         if (y > 0) frogPosition -= width;
+        finishLevel();
+        collision(frogPosition, "guard");
+        collision(frogPosition, "boss");
+        collision(frogPosition, "mask");
         break;
       case 39:
         if (x < width - 1) frogPosition++;
+        finishLevel();
+        collision(frogPosition, "guard");
+        collision(frogPosition, "boss");
+        collision(frogPosition, "mask");
         break;
       case 40:
         if (y < width - 1) frogPosition += width;
+        finishLevel();
+        collision(frogPosition, "guard");
+        collision(frogPosition, "boss");
+        collision(frogPosition, "mask");
+        break;
+      default:
+        console.log("unidentified move");
     }
-    addFrog(frogPosition);
+    addObj(frogPosition, "frog");
   }
 
-  // let go;
-  function movement(position, item, endPosition, startPosition, interval) {
-    setInterval(() => {
+  let go;
+  function movement(
+    position,
+    item,
+    endPosition,
+    startPosition,
+    distance,
+    interval
+  ) {
+    go = setInterval(() => {
       if (position < endPosition) {
-        position++;
+        position = position + distance;
         addObj(position, item);
+        collision(position, "frog");
         setTimeout(() => {
-          removeObj(position - 1, item);
+          removeObj(position - distance, item);
         }, interval - 100);
       } else if (position === endPosition) {
         removeObj(position, item);
         position = startPosition;
         addObj(position, item);
+        collision(position, "frog");
       }
     }, interval);
+  }
+
+  function finishLevel() {
+    if (frogPosition === goalPosition) {
+      alert("You've completeled the level!");
+    }
+  }
+
+  function collision(position, item) {
+    if (cells[position].classList.contains(item)) {
+      cells[position].classList.add("collision");
+      lives--;
+    }
   }
 
   // function addObj2(position) {
