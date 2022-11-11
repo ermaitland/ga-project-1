@@ -9,7 +9,7 @@
   align-items: flex-start;
   flex-direction: column;
   /* margin-top: 0%; */
-  margin-right: 14%;
+  margin-right: 12%;
   margin-left: 6%;
 }
 
@@ -17,20 +17,34 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 80vh;
 }
 .grid {
   display: flex;
   flex-wrap: wrap;
+  height: 100%;
   justify-content: center;
   width: 600px;
+  height: 500px;
 }
 .grid div {
   border: 1px black solid;
-  height: 70px;
-  width: 70px;
+  flex-grow: 1;
+  height: 10%;
+  width: 9%;
 }
 .grid div.frog {
   background-image: url(/images/frog.webp);
   background-size: contain;
   background-repeat: no-repeat;
+}
+.grid div.guard {
+  background-image: url(/images/squid_attacker.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.grid div.collision {
+  background-image: url(/images/explosion.png);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
