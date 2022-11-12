@@ -12,7 +12,7 @@ function init() {
   let frogPosition = 94;
   let goalPosition;
   let lives = 2;
-  numberOfLives.innerHTML = lives;
+  numberOfLives.textContent = lives;
 
   const width = 10;
   const cellCount = width * width;
@@ -62,9 +62,10 @@ function init() {
     expert.disabled = true;
     addObj(frogPosition, "frog");
     levelComplete();
-    movement(90, "guard", 99, 70, 1, 300);
+    movement(90, "guard", 99, 80, 1, 300);
+    movement(79, "guard", 79, 50, -1, 300);
     movement(55, "mask", 99, 0, 11, 400);
-    movement(45, "boss", 59, 40, 2, 200);
+    movement(35, "boss", 39, 20, 2, 200);
   }
 
   function expertLevel() {
@@ -89,15 +90,25 @@ function init() {
     movement(54, "guard", 94, 4, 10, 200);
     movement(9, "mask", 90, 9, 9, 300);
     movement(10, "boss", 19, 10, 1, 50);
-    movement(47, "doll", 59, 40, 4, 300);
+    movement(47, "doll", 59, 40, 4, 700);
   }
 
   function stopGame() {
-    if (lives === 0);
-    {
-      // clearInterval(go);
+    grid.style.display = "none";
+    beginner.disabled = false;
+    intermediate.disabled = false;
+    expert.disabled = false;
+    if (lives === 0) {
       const gameOverMessage = document.createElement("h1");
+      pageSetUp.appendChild(gameOverMessage);
+      gameOverMessage.classList.add("alert");
       gameOverMessage.textContent = "GameOver!";
+    }
+  }
+  function finishLevel() {
+    if (frogPosition === goalPosition) {
+      alert("You've completeled the level!");
+      stopGame();
     }
   }
 
@@ -172,21 +183,21 @@ function init() {
     }, interval);
   }
 
-  function finishLevel() {
-    if (frogPosition === goalPosition) {
-      alert("You've completeled the level!");
-    }
-  }
-
   function collision(position, item) {
     if (cells[position].classList.contains(item)) {
       cells[position].classList.add("collision");
       setTimeout(() => {
         cells[position].classList.remove("collision");
-      }, 1500);
+      }, 1000);
       lives--;
       numberOfLives.textContent = lives;
-      stopGame();
+      if (lives === 0) {
+        stopGame();
+      } else {
+        removeObj(frogPosition, "frog");
+        frogPosition = 94;
+        addObj(frogPosition, "frog");
+      }
     }
   }
   function frogCollision() {
