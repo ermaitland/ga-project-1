@@ -7,6 +7,8 @@ function init() {
   const currentLevel = document.querySelector(".current-level");
   const pageSetUp = document.querySelector(".page-layout");
   const infoBox = document.querySelector(".infomation-box");
+  const changeableInfo = document.querySelector(".phase-in-out-info");
+  const reload = document.querySelector(".reload");
   const cells = [];
   const levelGoal = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   let frogPosition = 94;
@@ -21,7 +23,6 @@ function init() {
     function createGrid() {
       for (let i = 0; i < cellCount; i++) {
         const cell = document.createElement("div");
-        // could add if statement to create the data-row;
         cell.setAttribute = ("data-index", i);
         grid.appendChild(cell);
         cells.push(cell);
@@ -30,16 +31,12 @@ function init() {
       }
     }
     createGrid();
-    beginner.disabled = true;
-    intermediate.disabled = true;
-    expert.disabled = true;
+    disableBtns();
     currentLevel.textContent = "Beginner";
-    intermediate.disabled = true;
-    expert.disabled = true;
     addObj(frogPosition, "frog");
     levelComplete();
     movement(70, "guard", 79, 70, 1, 700);
-    movement(46, "mask", 59, 40, 1, 100);
+    movement(46, "mask", 59, 40, 1, 200);
     movement(12, "boss", 28, 10, 2, 700);
   }
 
@@ -57,15 +54,13 @@ function init() {
     }
     createGrid();
     currentLevel.textContent = "Intermediate";
-    beginner.disabled = true;
-    intermediate.disabled = true;
-    expert.disabled = true;
+    disableBtns();
     addObj(frogPosition, "frog");
     levelComplete();
-    movement(90, "guard", 99, 80, 1, 300);
-    movement(79, "guard", 79, 50, -1, 300);
-    movement(55, "mask", 99, 0, 11, 400);
-    movement(35, "boss", 39, 20, 2, 200);
+    movement(90, "guard", 99, 80, 1, 500, go);
+    movement(79, "guard", 79, 50, -1, 500, go1);
+    movement(55, "mask", 99, 0, 11, 600, go2);
+    movement(35, "boss", 39, 20, 2, 600, go3);
   }
 
   function expertLevel() {
@@ -82,34 +77,20 @@ function init() {
     }
     createGrid();
     currentLevel.textContent = "Expert!";
+    disableBtns();
+    addObj(frogPosition, "frog");
+    levelComplete();
+    movement(54, "guard", 94, 4, 10, 400, go);
+    movement(9, "mask", 90, 9, 9, 500, go1);
+    movement(10, "boss", 19, 10, 1, 650, go2);
+    movement(47, "doll", 59, 40, 4, 700, go3);
+  }
+
+  function disableBtns() {
     beginner.disabled = true;
     intermediate.disabled = true;
     expert.disabled = true;
-    addObj(frogPosition, "frog");
-    levelComplete();
-    movement(54, "guard", 94, 4, 10, 200);
-    movement(9, "mask", 90, 9, 9, 300);
-    movement(10, "boss", 19, 10, 1, 50);
-    movement(47, "doll", 59, 40, 4, 700);
-  }
-
-  function stopGame() {
-    grid.style.display = "none";
-    beginner.disabled = false;
-    intermediate.disabled = false;
-    expert.disabled = false;
-    if (lives === 0) {
-      const gameOverMessage = document.createElement("h1");
-      pageSetUp.appendChild(gameOverMessage);
-      gameOverMessage.classList.add("alert");
-      gameOverMessage.textContent = "GameOver!";
-    }
-  }
-  function finishLevel() {
-    if (frogPosition === goalPosition) {
-      alert("You've completeled the level!");
-      stopGame();
-    }
+    reload.innerHTML = "Back to Home!";
   }
 
   function levelComplete() {
@@ -156,7 +137,10 @@ function init() {
     addObj(frogPosition, "frog");
   }
 
-  let go;
+  // let go;
+  // let go1;
+  // let go2;
+  // let go3;
   function movement(
     position,
     item,
@@ -164,8 +148,10 @@ function init() {
     startPosition,
     distance,
     interval
+    // variable
   ) {
-    go = setInterval(() => {
+    // variable =
+    setInterval(() => {
       if (position <= endPosition - distance) {
         addObj(position, item);
         position = position + distance;
@@ -179,6 +165,9 @@ function init() {
         position = startPosition;
         addObj(position, item);
         collision(position, "frog");
+      }
+      if (lives === 0 || collision(position, "frog")) {
+        clearInterval(variable);
       }
     }, interval);
   }
@@ -207,6 +196,35 @@ function init() {
     collision(frogPosition, "boss");
   }
 
+  function stopGame() {
+    grid.style.display = "none";
+    changeableInfo.style.display = "none";
+    if (lives === 0) {
+      const gameOverMessage = document.createElement("h1");
+      pageSetUp.appendChild(gameOverMessage);
+      gameOverMessage.classList.add("alert");
+      gameOverMessage.textContent = "GameOver!";
+      pageSetUp.classList.add("doll-img");
+      reload.innerHTML = "Unlucky - Try again!";
+    } else {
+      const completedMsg = document.createElement("h1");
+      pageSetUp.appendChild(completedMsg);
+      completedMsg.classList.add("alert");
+      completedMsg.textContent = "Congratulations! You completed the level!";
+      reload.textContent = "Well done! See if you can win again!";
+    }
+  }
+  function finishLevel() {
+    if (frogPosition === goalPosition) {
+      stopGame();
+    }
+  }
+
+  function reloadPage() {
+    window.location.reload();
+  }
+
+  reload.addEventListener("click", reloadPage);
   beginner.addEventListener("click", beginnerLevel);
   intermediate.addEventListener("click", intermediateLevel);
   expert.addEventListener("click", expertLevel);
