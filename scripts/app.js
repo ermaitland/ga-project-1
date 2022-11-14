@@ -1,4 +1,5 @@
 function init() {
+  // ! Variables
   const beginner = document.querySelector(".beginner");
   const intermediate = document.querySelector(".intermediate");
   const expert = document.querySelector(".expert");
@@ -9,6 +10,8 @@ function init() {
   const infoBox = document.querySelector(".infomation-box");
   const changeableInfo = document.querySelector(".phase-in-out-info");
   const reload = document.querySelector(".reload");
+  const loadMusic = document.querySelector("#load-music");
+  const audioElement = document.querySelector("#game-playing");
   const cells = [];
   const levelGoal = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   let frogPosition = 94;
@@ -19,79 +22,44 @@ function init() {
   const width = 10;
   const cellCount = width * width;
 
-  function beginnerLevel() {
-    function createGrid() {
-      for (let i = 0; i < cellCount; i++) {
-        const cell = document.createElement("div");
-        cell.setAttribute = ("data-index", i);
-        grid.appendChild(cell);
-        cells.push(cell);
-        pageSetUp.style.flexDirection = "row";
-        infoBox.classList.add("playing");
-      }
+  // ! Create Grid
+
+  function createGrid() {
+    for (let i = 0; i < cellCount; i++) {
+      const cell = document.createElement("div");
+      cell.setAttribute = ("data-index", i);
+      grid.appendChild(cell);
+      cells.push(cell);
+      pageSetUp.style.flexDirection = "row";
+      infoBox.classList.add("playing");
     }
-    createGrid();
-    disableBtns();
-    currentLevel.textContent = "Beginner";
-    addObj(frogPosition, "frog");
-    levelComplete();
-    movement(70, "guard", 79, 70, 1, 700);
-    movement(46, "mask", 59, 40, 1, 200);
-    movement(12, "boss", 28, 10, 2, 700);
   }
 
-  function intermediateLevel() {
-    function createGrid() {
-      for (let i = 0; i < cellCount; i++) {
-        const cell = document.createElement("div");
-        // could add if statement to create the data-row;
-        cell.setAttribute = ("data-index", i);
-        grid.appendChild(cell);
-        cells.push(cell);
-        pageSetUp.style.flexDirection = "row";
-        infoBox.classList.add("playing");
-      }
-    }
+  // ! Function to start Game
+
+  function startGame() {
     createGrid();
-    currentLevel.textContent = "Intermediate";
-    disableBtns();
     addObj(frogPosition, "frog");
     levelComplete();
-    movement(90, "guard", 99, 80, 1, 500, go);
-    movement(79, "guard", 79, 50, -1, 500, go1);
-    movement(55, "mask", 99, 0, 11, 600, go2);
-    movement(35, "boss", 39, 20, 2, 600, go3);
-  }
-
-  function expertLevel() {
-    function createGrid() {
-      for (let i = 0; i < cellCount; i++) {
-        const cell = document.createElement("div");
-        // could add if statement to create the data-row;
-        cell.setAttribute = ("data-index", i);
-        grid.appendChild(cell);
-        cells.push(cell);
-        pageSetUp.style.flexDirection = "row";
-        infoBox.classList.add("playing");
-      }
-    }
-    createGrid();
-    currentLevel.textContent = "Expert!";
-    disableBtns();
-    addObj(frogPosition, "frog");
-    levelComplete();
-    movement(54, "guard", 94, 4, 10, 400, go);
-    movement(9, "mask", 90, 9, 9, 500, go1);
-    movement(10, "boss", 19, 10, 1, 650, go2);
-    movement(47, "doll", 59, 40, 4, 700, go3);
-  }
-
-  function disableBtns() {
     beginner.disabled = true;
     intermediate.disabled = true;
     expert.disabled = true;
     reload.innerHTML = "Back to Home!";
+    backgroundPlayingMusic();
   }
+
+  // function loadMusic() {
+  //   loadMusic.src = "./music/5992876__sandermotions__green-light-red-light.mp3";
+  //   loadMusic.play();
+  // }
+
+  function backgroundPlayingMusic() {
+    audioElement.src =
+      "./music/592617__fnaf657ultimate__squid-game-pink-soldiers-music.wav";
+    audioElement.play();
+  }
+
+  // ! Create the objects
 
   function levelComplete() {
     goalPosition = Math.floor(Math.random() * levelGoal.length);
@@ -105,6 +73,8 @@ function init() {
   function removeObj(position, item) {
     cells[position].classList.remove(item);
   }
+
+  // ! Move the Objects
 
   function moveFrog(e) {
     removeObj(frogPosition, "frog");
@@ -137,10 +107,6 @@ function init() {
     addObj(frogPosition, "frog");
   }
 
-  // let go;
-  // let go1;
-  // let go2;
-  // let go3;
   function movement(
     position,
     item,
@@ -148,9 +114,7 @@ function init() {
     startPosition,
     distance,
     interval
-    // variable
   ) {
-    // variable =
     setInterval(() => {
       if (position <= endPosition - distance) {
         addObj(position, item);
@@ -166,14 +130,46 @@ function init() {
         addObj(position, item);
         collision(position, "frog");
       }
-      if (lives === 0 || collision(position, "frog")) {
-        clearInterval(variable);
-      }
     }, interval);
   }
 
+  // ! Different Levels
+
+  function beginnerLevel() {
+    startGame();
+    currentLevel.textContent = "Beginner";
+    movement(70, "guard", 79, 70, 1, 700);
+    movement(72, "guard", 79, 70, 1, 700);
+    movement(36, "mask", 49, 30, 1, 200);
+    movement(12, "boss", 28, 10, 2, 700);
+  }
+
+  function intermediateLevel() {
+    beginnerLevel();
+    movement(86, "guard", 89, 80, 1, 500);
+    movement(87, "guard", 89, 80, 1, 500);
+    movement(60, "mask", 69, 60, 1, 100);
+  }
+
+  function expertLevel() {
+    currentLevel.textContent = "Expert!";
+    startGame();
+    movement(64, "guard", 79, 60, 1, 300);
+    movement(78, "guard", 79, 60, 1, 300);
+    movement(71, "guard", 79, 60, 1, 300);
+    movement(80, "mask", 89, 80, 1, 400);
+    movement(86, "mask", 89, 80, 1, 400);
+    movement(19, "boss", 19, 10, 1, 650);
+    movement(15, "boss", 19, 10, 1, 650);
+    movement(22, "boss", 29, 20, 1, 650);
+    movement(47, "doll", 59, 40, 1, 100);
+  }
+
+  // ! Collisions / complete game
+
   function collision(position, item) {
     if (cells[position].classList.contains(item)) {
+      cells[position].classList.remove(item);
       cells[position].classList.add("collision");
       setTimeout(() => {
         cells[position].classList.remove("collision");
@@ -211,6 +207,7 @@ function init() {
       pageSetUp.appendChild(completedMsg);
       completedMsg.classList.add("alert");
       completedMsg.textContent = "Congratulations! You completed the level!";
+      pageSetUp.classList.add("celebrate");
       reload.textContent = "Well done! See if you can win again!";
     }
   }
@@ -219,6 +216,8 @@ function init() {
       stopGame();
     }
   }
+
+  // ! Reload page & assign Event Listeners
 
   function reloadPage() {
     window.location.reload();
