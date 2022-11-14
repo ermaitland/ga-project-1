@@ -85,37 +85,37 @@ button {
   width: 9%;
 }
 .grid div.frog {
-  background-image: url(./images/frog.webp);
+  background-image: url(../images/frog.webp);
   background-size: contain;
   background-repeat: no-repeat;
 }
 .grid div.guard {
-  background-image: url(./images/squid_attacker.png);
+  background-image: url(../images/squid_attacker.png);
   background-size: contain;
   background-repeat: no-repeat;
 }
 .grid div.mask {
-  background-image: url(./images/mask.png);
+  background-image: url(../images/mask.png);
   background-size: contain;
   background-repeat: no-repeat;
 }
 .grid div.collision {
-  background-image: url(./images/explosion.png);
+  background-image: url(../images/explosion.png);
   background-repeat: no-repeat;
   background-size: contain;
 }
 .grid div.goal {
-  background-image: url(./images/money.jpeg);
+  background-image: url(../images/money.jpeg);
   background-repeat: no-repeat;
   background-size: contain;
 }
 .grid div.boss {
-  background-image: url(./images/boss.png);
+  background-image: url(../images/boss.png);
   background-repeat: no-repeat;
   background-size: contain;
 }
 .grid div.doll {
-  background-image: url(./images/squid_doll.jpeg);
+  background-image: url(../images/squid_doll.jpeg);
   background-size: contain;
   background-repeat: no-repeat;
 }
