@@ -131,14 +131,14 @@ button {
   position: absolute;
 }
 .doll-img {
-  background-image: url(/images/dance-doll.webp);
+  background-image: url(../images/dance-doll.webp);
   background-size: cover;
   background-repeat: no-repeat;
   width: 70vh;
   height: 80vh;
 }
 .celebrate {
-  background-image: url(/images/celebrate.gif);
+  background-image: url(../images/celebrate.gif);
   background-size: cover;
   background-repeat: no-repeat;
   width: 70vw;
