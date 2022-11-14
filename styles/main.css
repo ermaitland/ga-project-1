@@ -3,24 +3,25 @@ body {
   color: greenyellow;
   font-family: "Nunito", "sans-serif";
 }
-/* .logo {
+.logo {
   -webkit-transform: rotate(90deg);
-  height: 20vh;
-  width: 10vw;
-  margin-top: 0px;
-  margin-bottom: 15px;
-  padding: 0;
-} */
-/* .start-page {
+  height: 25vh;
+  width: 8vw;
+  border-top: 0px;
+  border-bottom: 3px;
+  cursor: pointer;
+}
+.start-page {
   display: flex;
   flex-direction: column;
   width: 100vw;
   align-content: stretch;
   align-items: center;
   justify-content: flex-start;
-} */
+}
 h1 {
   text-align: center;
+  border-top: 0px;
 }
 button {
   margin-top: 10px;
@@ -29,6 +30,7 @@ button {
   background-color: black;
   border: 0.5px greenyellow solid;
   box-shadow: 1px 1px;
+  cursor: pointer;
 }
 .reload {
   color: hotpink;
@@ -119,22 +121,26 @@ button {
 }
 .alert {
   display: flex;
-  justify-content: center;
-  align-content: center;
-  font-size: 70px;
+  /* justify-content: center; */
+  /* align-content: center; */
+  font-size: 50px;
   color: red;
   font-family: "rubik bubbles", "sans-serif";
-  text-align: center;
+  /* text-align: center; */
   size: 100vw;
   position: absolute;
 }
 .doll-img {
   background-image: url(/images/dance-doll.webp);
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
+  width: 70vh;
+  height: 80vh;
 }
 .celebrate {
   background-image: url(/images/celebrate.gif);
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
+  width: 70vw;
+  height: 80vh;
 }

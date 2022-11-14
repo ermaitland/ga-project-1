@@ -12,6 +12,7 @@ function init() {
   const reload = document.querySelector(".reload");
   const loadMusic = document.querySelector("#load-music");
   const audioElement = document.querySelector("#game-playing");
+  const logoMusic = document.querySelector(".logo");
   const cells = [];
   const levelGoal = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   let frogPosition = 94;
@@ -32,6 +33,7 @@ function init() {
       cells.push(cell);
       pageSetUp.style.flexDirection = "row";
       infoBox.classList.add("playing");
+      logoMusic.style.display = "none";
     }
   }
 
@@ -48,10 +50,10 @@ function init() {
     backgroundPlayingMusic();
   }
 
-  // function loadMusic() {
-  //   loadMusic.src = "./music/5992876__sandermotions__green-light-red-light.mp3";
-  //   loadMusic.play();
-  // }
+  function homeMusic() {
+    loadMusic.src = "./music/592876__sandermotions__green-light-red-light.mp3";
+    loadMusic.play();
+  }
 
   function backgroundPlayingMusic() {
     audioElement.src =
@@ -223,6 +225,7 @@ function init() {
     window.location.reload();
   }
 
+  logoMusic.addEventListener("click", homeMusic);
   reload.addEventListener("click", reloadPage);
   beginner.addEventListener("click", beginnerLevel);
   intermediate.addEventListener("click", intermediateLevel);
