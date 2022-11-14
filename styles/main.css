@@ -85,7 +85,7 @@ button {
   width: 9%;
 }
 .grid div.frog {
-  background-image: url("../images/frog.webp");
+  background-image: url(../images/frog.webp);
   background-size: contain;
   background-repeat: no-repeat;
 }
