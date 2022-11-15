@@ -127,20 +127,44 @@ button {
 /* Change so that the final pages are correctly inline and button is clearly visable */
 .alert {
   display: flex;
-  /* justify-content: center; */
-  /* align-content: center; */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   font-size: 50px;
   color: red;
   font-family: "rubik bubbles", "sans-serif";
-  /* text-align: center; */
+  margin-left: 15%;
   size: 100vw;
   position: absolute;
+}
+.alert-win {
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 50px;
+  color: red;
+  font-family: "rubik bubbles", "sans-serif";
+  margin-left: 22%;
+  size: 100vw;
+  position: absolute;
+}
+.home-btn {
+  margin-left: 18vw;
+  margin-top: 70vh;
+  padding: 5px;
+}
+.home-btn-win {
+  margin-left: 25vw;
+  margin-top: 70vh;
+  padding: 5px;
 }
 .doll-img {
   background-image: url(../images/dance-doll.webp);
   background-size: cover;
   background-repeat: no-repeat;
-  width: 70vh;
+  width: 100vh;
   height: 80vh;
 }
 .celebrate {

@@ -5,7 +5,7 @@ function init() {
   const expert = document.querySelector(".expert");
   const timed = document.querySelector(".against-clock");
   const screen = document.querySelector(".timer-screen");
-  const musicCountdown = document.querySelector(".timer-music");
+  // const musicCountdown = document.querySelector(".timer-music");
   const grid = document.querySelector(".grid");
   const numberOfLives = document.querySelector(".lives");
   const currentLevel = document.querySelector(".current-level");
@@ -49,6 +49,7 @@ function init() {
     beginner.disabled = true;
     intermediate.disabled = true;
     expert.disabled = true;
+    timed.disabled = true;
     reload.innerHTML = "Back to Home!";
     backgroundPlayingMusic();
   }
@@ -64,7 +65,7 @@ function init() {
     audioElement.play();
   }
   // function countdownSound() {
-  //   musicCountdown.scr = "./music/262551__giddster__countdown-to-launch.wav";
+  //   musicCountdown.src = "./music/262551__giddster__countdown-to-launch.wav";
   //   musicCountdown.play();
   // }
 
@@ -143,7 +144,6 @@ function init() {
   }
 
   // ! Different Levels
-  // edit so one multiple on a line
 
   function beginnerLevel() {
     startGame();
@@ -165,7 +165,6 @@ function init() {
   function expertLevel() {
     currentLevel.textContent = "Expert!";
     startGame();
-
     movement(64, "guard", 79, 60, 1, 300);
     movement(78, "guard", 79, 60, 1, 300);
     movement(71, "guard", 79, 60, 1, 300);
@@ -231,15 +230,20 @@ function init() {
       gameOverMessage.classList.add("alert");
       gameOverMessage.textContent = "GameOver!";
       pageSetUp.classList.add("doll-img");
+      reload.classList.add("home-btn");
       reload.innerHTML = "Unlucky - Try again!";
-      // add in audio laugh and stop audio play!
+      homeMusic();
+      // add in audio laugh!
     } else {
       const completedMsg = document.createElement("h1");
       pageSetUp.appendChild(completedMsg);
-      completedMsg.classList.add("alert");
+      completedMsg.classList.add("alert-win");
       completedMsg.textContent = "Congratulations! You completed the level!";
       pageSetUp.classList.add("celebrate");
+      reload.classList.add("home-btn-win");
       reload.textContent = "Well done! See if you can win again!";
+      homeMusic();
+      // add in audio celebrate!
     }
   }
   function finishLevel() {
