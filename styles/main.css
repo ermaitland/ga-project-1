@@ -171,7 +171,7 @@ button {
 }
 .home-btn {
   margin-left: 20vw;
-  margin-top: 63vh;
+  margin-top: 69vh;
   padding: 6px;
   width: 150px;
   border: 1px white solid;
@@ -189,11 +189,13 @@ button {
   background-repeat: no-repeat;
   width: 100vh;
   height: 70vh;
+  margin-top: 150px;
 }
 .celebrate {
   background-image: url(../images/celebrate.gif);
   background-size: cover;
   background-repeat: no-repeat;
+  margin-top: 150px;
   width: 70vw;
   height: 70vh;
 }
