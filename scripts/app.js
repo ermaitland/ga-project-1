@@ -3,6 +3,9 @@ function init() {
   const beginner = document.querySelector(".beginner");
   const intermediate = document.querySelector(".intermediate");
   const expert = document.querySelector(".expert");
+  const timed = document.querySelector(".against-clock");
+  const screen = document.querySelector(".timer-screen");
+  const musicCountdown = document.querySelector(".timer-music");
   const grid = document.querySelector(".grid");
   const numberOfLives = document.querySelector(".lives");
   const currentLevel = document.querySelector(".current-level");
@@ -60,6 +63,10 @@ function init() {
       "./music/592617__fnaf657ultimate__squid-game-pink-soldiers-music.wav";
     audioElement.play();
   }
+  // function countdownSound() {
+  //   musicCountdown.scr = "./music/262551__giddster__countdown-to-launch.wav";
+  //   musicCountdown.play();
+  // }
 
   // ! Create the objects
 
@@ -136,6 +143,7 @@ function init() {
   }
 
   // ! Different Levels
+  // edit so one multiple on a line
 
   function beginnerLevel() {
     startGame();
@@ -143,6 +151,7 @@ function init() {
     movement(70, "guard", 79, 70, 1, 700);
     movement(72, "guard", 79, 70, 1, 700);
     movement(36, "mask", 49, 30, 1, 200);
+    movement(41, "mask", 49, 30, 1, 200);
     movement(12, "boss", 28, 10, 2, 700);
   }
 
@@ -156,6 +165,7 @@ function init() {
   function expertLevel() {
     currentLevel.textContent = "Expert!";
     startGame();
+
     movement(64, "guard", 79, 60, 1, 300);
     movement(78, "guard", 79, 60, 1, 300);
     movement(71, "guard", 79, 60, 1, 300);
@@ -167,6 +177,23 @@ function init() {
     movement(47, "doll", 59, 40, 1, 100);
   }
 
+  let count = 10;
+  let counter;
+  function againstTheClock() {
+    currentLevel.textContent = "Beat the Clock!";
+    intermediateLevel();
+    counter = setInterval(() => {
+      if (count >= 1) {
+        screen.innerHTML = `You have ${count} seconds left!`;
+        count--;
+      } else {
+        lives = 0;
+        stopGame();
+        clearInterval(counter);
+      }
+    }, 1000);
+  }
+
   // ! Collisions / complete game
 
   function collision(position, item) {
@@ -175,7 +202,7 @@ function init() {
       cells[position].classList.add("collision");
       setTimeout(() => {
         cells[position].classList.remove("collision");
-      }, 1000);
+      }, 700);
       lives--;
       numberOfLives.textContent = lives;
       if (lives === 0) {
@@ -197,6 +224,7 @@ function init() {
   function stopGame() {
     grid.style.display = "none";
     changeableInfo.style.display = "none";
+    audioElement.pause();
     if (lives === 0) {
       const gameOverMessage = document.createElement("h1");
       pageSetUp.appendChild(gameOverMessage);
@@ -204,6 +232,7 @@ function init() {
       gameOverMessage.textContent = "GameOver!";
       pageSetUp.classList.add("doll-img");
       reload.innerHTML = "Unlucky - Try again!";
+      // add in audio laugh and stop audio play!
     } else {
       const completedMsg = document.createElement("h1");
       pageSetUp.appendChild(completedMsg);
@@ -230,6 +259,7 @@ function init() {
   beginner.addEventListener("click", beginnerLevel);
   intermediate.addEventListener("click", intermediateLevel);
   expert.addEventListener("click", expertLevel);
+  timed.addEventListener("click", againstTheClock);
   document.addEventListener("keyup", moveFrog);
 }
 window.addEventListener("DOMContentLoaded", init);
