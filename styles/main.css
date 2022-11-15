@@ -6,8 +6,9 @@ body {
 .logo {
   -webkit-transform: rotate(90deg);
   height: 30vh;
-  width: 11vw;
+  width: 9vw;
   margin-top: 0px;
+  padding-top: 0px;
   margin-bottom: 0px;
   padding-bottom: 0%;
   cursor: pointer;
@@ -16,25 +17,29 @@ body {
   display: flex;
   flex-direction: column;
   width: 100vw;
+  height: 100vh;
   align-items: center;
   justify-content: center;
   align-content: center;
+  padding: 0px;
 }
 .title {
   font-family: "rubik bubbles", sans-serif;
   text-align: center;
   margin-top: 0px;
   border-bottom: 3px;
-  padding-top: 3px;
-  font-size: 70px;
+  padding: 0px;
+  font-size: 90px;
 }
 button {
   margin-top: 10px;
   border-radius: 5px;
+  padding-top: 4px;
+  padding-bottom: 4px;
   color: greenyellow;
   background-color: black;
   border: 0.5px greenyellow solid;
-  box-shadow: 1px 1px;
+  box-shadow: 1px 1px hotpink;
   cursor: pointer;
 }
 .reload {
@@ -45,6 +50,7 @@ button {
 .page-layout {
   display: flex;
   flex-direction: column;
+  height: 70vh;
 }
 
 .infomation-box {
@@ -55,18 +61,23 @@ button {
   text-align: center;
   justify-content: center;
 }
-.infomation-box p {
-  width: 300px;
-}
+/* .infomation-box p {
+  width: 500px;
+} */
 .playing {
   align-content: flex-start;
   align-items: flex-start;
-  margin-right: 12%;
-  margin-left: 6%;
+  margin-right: 5%;
+  margin-left: 2%;
+  width: 300px;
 }
 .phase-in-out-info {
   display: flex;
   flex-direction: column;
+}
+.phase-in-out-info p {
+  padding: 0px;
+  font-size: 15px;
 }
 .grid-wrapper {
   display: flex;
@@ -83,7 +94,7 @@ button {
   height: 500px;
 }
 .grid div {
-  border: 1px green solid;
+  border: 1px greenyellow solid;
   background-color: white;
   flex-grow: 1;
   height: 10%;
@@ -124,7 +135,6 @@ button {
   background-size: contain;
   background-repeat: no-repeat;
 }
-/* Change so that the final pages are correctly inline and button is clearly visable */
 .alert {
   display: flex;
   justify-content: center;
@@ -133,7 +143,7 @@ button {
   font-size: 50px;
   color: red;
   font-family: "rubik bubbles", "sans-serif";
-  margin-left: 15%;
+  margin-left: 16%;
   size: 100vw;
   position: absolute;
 }
@@ -151,14 +161,18 @@ button {
   position: absolute;
 }
 .home-btn {
-  margin-left: 18vw;
+  margin-left: 19vw;
   margin-top: 70vh;
-  padding: 5px;
+  padding: 6px;
+  width: 150px;
+  border: 1px white solid;
 }
 .home-btn-win {
-  margin-left: 25vw;
+  margin-left: 29vw;
   margin-top: 70vh;
-  padding: 5px;
+  padding: 6px;
+  width: 190px;
+  border: 1px white solid;
 }
 .doll-img {
   background-image: url(../images/dance-doll.webp);

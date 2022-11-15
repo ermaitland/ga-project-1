@@ -5,7 +5,7 @@ function init() {
   const expert = document.querySelector(".expert");
   const timed = document.querySelector(".against-clock");
   const screen = document.querySelector(".timer-screen");
-  // const musicCountdown = document.querySelector(".timer-music");
+  const musicCountdown = document.querySelector("#timer-music");
   const grid = document.querySelector(".grid");
   const numberOfLives = document.querySelector(".lives");
   const currentLevel = document.querySelector(".current-level");
@@ -64,10 +64,11 @@ function init() {
       "./music/592617__fnaf657ultimate__squid-game-pink-soldiers-music.wav";
     audioElement.play();
   }
-  // function countdownSound() {
-  //   musicCountdown.src = "./music/262551__giddster__countdown-to-launch.wav";
-  //   musicCountdown.play();
-  // }
+  function countdownMusic() {
+    musicCountdown.src =
+      "./music/651011__therandomsoundbyte2637__final-countdown-timer.wav";
+    musicCountdown.play();
+  }
 
   // ! Create the objects
 
@@ -181,10 +182,12 @@ function init() {
   function againstTheClock() {
     currentLevel.textContent = "Beat the Clock!";
     intermediateLevel();
+    countdownMusic();
+    screen.innerHTML = `You have ${count} second left!`;
     counter = setInterval(() => {
       if (count >= 1) {
-        screen.innerHTML = `You have ${count} seconds left!`;
         count--;
+        screen.innerHTML = `You have ${count} seconds left!`;
       } else {
         lives = 0;
         stopGame();
@@ -224,6 +227,7 @@ function init() {
     grid.style.display = "none";
     changeableInfo.style.display = "none";
     audioElement.pause();
+    musicCountdown.pause();
     if (lives === 0) {
       const gameOverMessage = document.createElement("h1");
       pageSetUp.appendChild(gameOverMessage);
