@@ -106,13 +106,13 @@ button {
 }
 .grid div {
   border: 1px greenyellow solid;
-  background-color: white;
+  /* background-color: white; */
   flex-grow: 1;
   height: 10%;
   width: 9%;
 }
 .grid div.frog {
-  background-image: url(../images/frog.webp);
+  background-image: url(../images/frog.png);
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -132,7 +132,7 @@ button {
   background-size: contain;
 }
 .grid div.goal {
-  background-image: url(../images/money.jpeg);
+  background-image: url(../images/money.png);
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -142,7 +142,7 @@ button {
   background-size: contain;
 }
 .grid div.doll {
-  background-image: url(../images/squid_doll.jpeg);
+  background-image: url(../images/squid_doll.png);
   background-size: contain;
   background-repeat: no-repeat;
 }

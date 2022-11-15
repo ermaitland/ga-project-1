@@ -24,7 +24,6 @@ function init() {
   let goalPosition;
   let lives = 2;
   numberOfLives.textContent = lives;
-
   const width = 10;
   const cellCount = width * width;
 
@@ -237,7 +236,8 @@ function init() {
   }
 
   function stopGame() {
-    grid.style.display = "none";
+    grid.classList.remove("grid");
+    // grid.style.display = "none";
     changeableInfo.style.display = "none";
     audioElement.pause();
     musicCountdown.pause();
@@ -273,6 +273,7 @@ function init() {
 
   function reloadPage() {
     window.location.reload();
+    // change this one!
   }
 
   logoMusic.addEventListener("click", homeMusic);
