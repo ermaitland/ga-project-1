@@ -1,7 +1,7 @@
 body {
   background-color: black;
   color: greenyellow;
-  font-family: "Nunito", "sans-serif";
+  font-family: "Sono", "sans-serif";
 }
 .logo {
   -webkit-transform: rotate(90deg);
@@ -12,14 +12,16 @@ body {
   margin-bottom: 0px;
   padding-bottom: 0%;
   cursor: pointer;
+  top: 85px;
+  position: relative;
 }
 .start-page {
   display: flex;
   flex-direction: column;
   width: 100vw;
-  height: 100vh;
+  height: 90vh;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   align-content: center;
   padding: 0px;
 }
@@ -30,8 +32,11 @@ body {
   border-bottom: 3px;
   padding: 0px;
   font-size: 90px;
+  top: 30px;
+  position: absolute;
 }
 button {
+  font-family: "Sono", "sans-serif";
   margin-top: 10px;
   border-radius: 5px;
   padding-top: 4px;
@@ -52,6 +57,9 @@ button {
   flex-direction: column;
   height: 70vh;
 }
+.play-grid {
+  margin-top: 110px;
+}
 
 .infomation-box {
   display: flex;
@@ -59,27 +67,30 @@ button {
   align-items: center;
   flex-direction: column;
   text-align: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
-/* .infomation-box p {
-  width: 500px;
-} */
+.infomation-box p {
+  margin-top: 0px;
+}
 .playing {
   align-content: flex-start;
   align-items: flex-start;
   margin-right: 5%;
   margin-left: 2%;
   width: 300px;
+  margin-top: 20px;
 }
 .phase-in-out-info {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 .phase-in-out-info p {
   padding: 0px;
   font-size: 15px;
 }
 .grid-wrapper {
+  padding-top: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -140,11 +151,10 @@ button {
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: 50px;
+  font-size: 60px;
   color: red;
   font-family: "rubik bubbles", "sans-serif";
-  margin-left: 16%;
-  size: 100vw;
+  margin-left: 17%;
   position: absolute;
 }
 .alert-win {
@@ -157,19 +167,18 @@ button {
   color: red;
   font-family: "rubik bubbles", "sans-serif";
   margin-left: 22%;
-  size: 100vw;
   position: absolute;
 }
 .home-btn {
-  margin-left: 19vw;
-  margin-top: 70vh;
+  margin-left: 20vw;
+  margin-top: 63vh;
   padding: 6px;
   width: 150px;
   border: 1px white solid;
 }
 .home-btn-win {
   margin-left: 29vw;
-  margin-top: 70vh;
+  margin-top: 62vh;
   padding: 6px;
   width: 190px;
   border: 1px white solid;
@@ -179,12 +188,12 @@ button {
   background-size: cover;
   background-repeat: no-repeat;
   width: 100vh;
-  height: 80vh;
+  height: 70vh;
 }
 .celebrate {
   background-image: url(../images/celebrate.gif);
   background-size: cover;
   background-repeat: no-repeat;
   width: 70vw;
-  height: 80vh;
+  height: 70vh;
 }

@@ -15,6 +15,8 @@ function init() {
   const reload = document.querySelector(".reload");
   const loadMusic = document.querySelector("#load-music");
   const audioElement = document.querySelector("#game-playing");
+  const frogJump = document.querySelector("#frog-move");
+  const collideNoise = document.querySelector("#explosion");
   const logoMusic = document.querySelector(".logo");
   const cells = [];
   const levelGoal = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -35,6 +37,7 @@ function init() {
       grid.appendChild(cell);
       cells.push(cell);
       pageSetUp.style.flexDirection = "row";
+      pageSetUp.classList.add("play-grid");
       infoBox.classList.add("playing");
       logoMusic.style.display = "none";
     }
@@ -69,6 +72,14 @@ function init() {
       "./music/651011__therandomsoundbyte2637__final-countdown-timer.wav";
     musicCountdown.play();
   }
+  function frogMusic() {
+    frogJump.src = "./music/347167__davidsraba__bleep-sound.wav";
+    frogJump.play();
+  }
+  function collisionMusic() {
+    collideNoise.src = "./music/55819__sergenious__boom2.wav";
+    collideNoise.play();
+  }
 
   // ! Create the objects
 
@@ -88,6 +99,7 @@ function init() {
   // ! Move the Objects
 
   function moveFrog(e) {
+    frogMusic();
     removeObj(frogPosition, "frog");
     const x = frogPosition % width;
     const y = Math.floor(frogPosition / width);
@@ -202,6 +214,7 @@ function init() {
     if (cells[position].classList.contains(item)) {
       cells[position].classList.remove(item);
       cells[position].classList.add("collision");
+      collisionMusic();
       setTimeout(() => {
         cells[position].classList.remove("collision");
       }, 700);
