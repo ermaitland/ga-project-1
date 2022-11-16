@@ -105,10 +105,11 @@ button {
   height: 500px;
 }
 .grid div {
-  border: 1px greenyellow solid;
+  border: 1px black solid;
   /* background-color: white; */
   flex-grow: 1;
-  height: 10%;
+  /* height 10% if want inside grid */
+  height: 9%;
   width: 9%;
 }
 .grid div.frog {
@@ -170,7 +171,7 @@ button {
   position: absolute;
 }
 .home-btn {
-  margin-left: 20vw;
+  margin-left: 22vw;
   margin-top: 69vh;
   padding: 6px;
   width: 150px;
@@ -178,7 +179,7 @@ button {
 }
 .home-btn-win {
   margin-left: 29vw;
-  margin-top: 62vh;
+  margin-top: 69vh;
   padding: 6px;
   width: 190px;
   border: 1px white solid;

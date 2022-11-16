@@ -17,7 +17,7 @@ function init() {
   const audioElement = document.querySelector("#game-playing");
   const frogJump = document.querySelector("#frog-move");
   const collideNoise = document.querySelector("#explosion");
-  const logoMusic = document.querySelector(".logo");
+  const logoAndMusic = document.querySelector(".logo");
   const cells = [];
   const levelGoal = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   let frogPosition = 94;
@@ -37,8 +37,9 @@ function init() {
       cells.push(cell);
       pageSetUp.style.flexDirection = "row";
       pageSetUp.classList.add("play-grid");
+      grid.style.border = "1px green solid";
       infoBox.classList.add("playing");
-      logoMusic.style.display = "none";
+      logoAndMusic.style.display = "none";
     }
   }
 
@@ -237,7 +238,6 @@ function init() {
 
   function stopGame() {
     grid.classList.remove("grid");
-    // grid.style.display = "none";
     changeableInfo.style.display = "none";
     audioElement.pause();
     musicCountdown.pause();
@@ -250,8 +250,8 @@ function init() {
       reload.classList.add("home-btn");
       reload.innerHTML = "Unlucky - Try again!";
       homeMusic();
-      // add in audio laugh!
     } else {
+      // if function to automatically move onto next level? if(beginner)=>intermediate?
       const completedMsg = document.createElement("h1");
       pageSetUp.appendChild(completedMsg);
       completedMsg.classList.add("alert-win");
@@ -260,7 +260,6 @@ function init() {
       reload.classList.add("home-btn-win");
       reload.textContent = "Well done! See if you can win again!";
       homeMusic();
-      // add in audio celebrate!
     }
   }
   function finishLevel() {
@@ -273,10 +272,9 @@ function init() {
 
   function reloadPage() {
     window.location.reload();
-    // change this one!
   }
 
-  logoMusic.addEventListener("click", homeMusic);
+  logoAndMusic.addEventListener("click", homeMusic);
   reload.addEventListener("click", reloadPage);
   beginner.addEventListener("click", beginnerLevel);
   intermediate.addEventListener("click", intermediateLevel);
