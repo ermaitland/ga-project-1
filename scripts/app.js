@@ -265,6 +265,7 @@ function init() {
   function finishLevel() {
     if (frogPosition === goalPosition) {
       stopGame();
+      clearInterval(counter);
     }
   }
 
