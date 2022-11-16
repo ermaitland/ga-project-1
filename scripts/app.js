@@ -28,7 +28,6 @@ function init() {
   const cellCount = width * width;
 
   // ! Create Grid
-
   function createGrid() {
     for (let i = 0; i < cellCount; i++) {
       const cell = document.createElement("div");
@@ -43,8 +42,7 @@ function init() {
     }
   }
 
-  // ! Function to start Game
-
+  // ! Function to start Game, Music & Reload
   function startGame() {
     createGrid();
     addObj(frogPosition, "frog");
@@ -55,6 +53,10 @@ function init() {
     timed.disabled = true;
     reload.innerHTML = "Back to Home!";
     backgroundPlayingMusic();
+  }
+
+  function reloadPage() {
+    window.location.reload();
   }
 
   function homeMusic() {
@@ -80,9 +82,12 @@ function init() {
     collideNoise.src = "./music/55819__sergenious__boom2.wav";
     collideNoise.play();
   }
+  function stopMusic() {
+    audioElement.pause();
+    musicCountdown.pause();
+  }
 
-  // ! Create the objects
-
+  // ! Create the objects/Remove the objects
   function levelComplete() {
     goalPosition = Math.floor(Math.random() * levelGoal.length);
     cells[goalPosition].classList.add("goal");
@@ -97,7 +102,6 @@ function init() {
   }
 
   // ! Move the Objects
-
   function moveFrog(e) {
     frogMusic();
     removeObj(frogPosition, "frog");
@@ -156,8 +160,7 @@ function init() {
     }, interval);
   }
 
-  // ! Different Levels
-
+  // ! Functions for different Levels
   function beginnerLevel() {
     startGame();
     currentLevel.textContent = "Beginner";
@@ -208,8 +211,7 @@ function init() {
     }, 1000);
   }
 
-  // ! Collisions / complete game
-
+  // ! Collisions / Complete game
   function collision(position, item) {
     if (cells[position].classList.contains(item)) {
       cells[position].classList.remove(item);
@@ -239,8 +241,7 @@ function init() {
   function stopGame() {
     grid.classList.remove("grid");
     changeableInfo.style.display = "none";
-    audioElement.pause();
-    musicCountdown.pause();
+    stopMusic();
     if (lives === 0) {
       const gameOverMessage = document.createElement("h1");
       pageSetUp.appendChild(gameOverMessage);
@@ -251,7 +252,6 @@ function init() {
       reload.innerHTML = "Unlucky - Try again!";
       homeMusic();
     } else {
-      // if function to automatically move onto next level? if(beginner)=>intermediate?
       const completedMsg = document.createElement("h1");
       pageSetUp.appendChild(completedMsg);
       completedMsg.classList.add("alert-win");
@@ -268,12 +268,7 @@ function init() {
     }
   }
 
-  // ! Reload page & assign Event Listeners
-
-  function reloadPage() {
-    window.location.reload();
-  }
-
+  // ! assign Event Listeners
   logoAndMusic.addEventListener("click", homeMusic);
   reload.addEventListener("click", reloadPage);
   beginner.addEventListener("click", beginnerLevel);
