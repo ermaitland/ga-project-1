@@ -1,18 +1,18 @@
 function init() {
-  // ! Variables
+  // ***** VARIABLES *****
   const beginner = document.querySelector(".beginner");
   const intermediate = document.querySelector(".intermediate");
   const expert = document.querySelector(".expert");
   const timed = document.querySelector(".against-clock");
-  const screen = document.querySelector(".timer-screen");
-  const musicCountdown = document.querySelector("#timer-music");
   const grid = document.querySelector(".grid");
-  const numberOfLives = document.querySelector(".lives");
-  const currentLevel = document.querySelector(".current-level");
   const pageSetUp = document.querySelector(".page-layout");
   const infoBox = document.querySelector(".infomation-box");
   const changeableInfo = document.querySelector(".phase-in-out-info");
+  const screen = document.querySelector(".timer-screen");
+  const numberOfLives = document.querySelector(".lives");
   const reload = document.querySelector(".reload");
+  const currentLevel = document.querySelector(".current-level");
+  const musicCountdown = document.querySelector("#timer-music");
   const loadMusic = document.querySelector("#load-music");
   const audioElement = document.querySelector("#game-playing");
   const frogJump = document.querySelector("#frog-move");
@@ -20,16 +20,16 @@ function init() {
   const logoAndMusic = document.querySelector(".logo");
   const cells = [];
   const levelGoal = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  const glassFloor = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
-  let fallThroughGlass;
+  const glassFloor = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   let frogPosition = 94;
   let goalPosition;
+  let fallThroughGlass;
   let lives = 2;
   numberOfLives.textContent = lives;
   const width = 10;
   const cellCount = width * width;
 
-  // ! Create Grid
+  // ***** CREATE GRID *****
   function createGrid() {
     for (let i = 0; i < cellCount; i++) {
       const cell = document.createElement("div");
@@ -44,18 +44,18 @@ function init() {
     }
   }
 
-  // ! Function to start Game, Music & Reload
+  // ***** FUNCTION TO START GAME, MUSIC & RELOAD *****
   function startGame() {
     createGrid();
     addObj(frogPosition, "frog");
-    levelComplete();
+    levelCompleteGoal();
+    weakGlass();
     beginner.disabled = true;
     intermediate.disabled = true;
     expert.disabled = true;
     timed.disabled = true;
     reload.innerHTML = "Back to Home!";
     backgroundPlayingMusic();
-    weakGlass();
   }
 
   function reloadPage() {
@@ -66,7 +66,6 @@ function init() {
     loadMusic.src = "./music/592876__sandermotions__green-light-red-light.mp3";
     loadMusic.play();
   }
-
   function backgroundPlayingMusic() {
     audioElement.src =
       "./music/592617__fnaf657ultimate__squid-game-pink-soldiers-music.wav";
@@ -90,8 +89,8 @@ function init() {
     musicCountdown.pause();
   }
 
-  // ! Create the objects/Remove the objects
-  function levelComplete() {
+  // ***** CREATE THE OBJECTS/REMOVE THE OBJECTS *****
+  function levelCompleteGoal() {
     goalPosition = Math.floor(Math.random() * levelGoal.length);
     cells[goalPosition].classList.add("goal");
   }
@@ -175,7 +174,7 @@ function init() {
     }, interval);
   }
 
-  // ! Functions for different Levels
+  // ***** FUNCTIONS FOR DIFFERENT LEVELS *****
   function beginnerLevel() {
     startGame();
     currentLevel.textContent = "Beginner";
@@ -188,6 +187,7 @@ function init() {
 
   function intermediateLevel() {
     beginnerLevel();
+    currentLevel.textContent = "Intermediate";
     movement(86, "guard", 89, 80, 1, 500);
     movement(87, "guard", 89, 80, 1, 500);
     movement(60, "mask", 69, 60, 1, 100);
@@ -226,7 +226,7 @@ function init() {
     }, 1000);
   }
 
-  // ! Collisions / Complete game
+  // ***** COLLISIONS / COMPLETE GAME *****
   function collision(position, item) {
     if (cells[position].classList.contains(item)) {
       cells[position].classList.remove(item);
@@ -285,7 +285,7 @@ function init() {
     }
   }
 
-  // ! assign Event Listeners
+  // ***** ASSIGN EVENT LISTENER *****
   logoAndMusic.addEventListener("click", homeMusic);
   reload.addEventListener("click", reloadPage);
   beginner.addEventListener("click", beginnerLevel);

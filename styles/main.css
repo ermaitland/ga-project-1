@@ -67,18 +67,16 @@ button {
   align-items: center;
   flex-direction: column;
   text-align: center;
-  justify-content: flex-start;
+  justify-content: center;
 }
 .infomation-box p {
   margin-top: 0px;
 }
 .playing {
-  align-content: flex-start;
-  align-items: flex-start;
-  margin-right: 5%;
+  margin-right: 15%;
   margin-left: 2%;
-  width: 300px;
-  margin-top: 20px;
+  width: 400px;
+  margin-top: 60px;
 }
 .phase-in-out-info {
   display: flex;
@@ -176,19 +174,20 @@ button {
   font-size: 50px;
   color: red;
   font-family: "rubik bubbles", "sans-serif";
-  margin-left: 16%;
+  margin-left: 21vw;
   position: absolute;
+  animation: pulse 1.5s infinite;
 }
 .home-btn {
-  margin-left: 20vw;
-  margin-top: 69vh;
+  margin-left: 28vw;
+  margin-top: 70vh;
   padding: 6px;
   width: 150px;
   border: 1px white solid;
 }
 .home-btn-win {
-  margin-left: 24vw;
-  margin-top: 69vh;
+  margin-left: 46vw;
+  margin-top: 70vh;
   padding: 6px;
   width: 190px;
   border: 1px white solid;
