@@ -105,12 +105,20 @@ button {
   height: 500px;
 }
 .grid div {
-  border: 1px black solid;
+  border: 2px green solid;
   /* background-color: white; */
   flex-grow: 1;
   /* height 10% if want inside grid */
   height: 9%;
   width: 9%;
+  background-image: url(../images/blackbackground.jpeg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.grid div.weakGlass {
+  background-image: url(../images/glassFloor.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .grid div.frog {
   background-image: url(../images/frog.png);
@@ -118,7 +126,7 @@ button {
   background-repeat: no-repeat;
 }
 .grid div.guard {
-  background-image: url(../images/squid_attacker.png);
+  background-image: url(../images/guard.jpeg);
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -155,8 +163,9 @@ button {
   font-size: 60px;
   color: red;
   font-family: "rubik bubbles", "sans-serif";
-  margin-left: 17%;
+  margin-left: 16%;
   position: absolute;
+  animation: pulse 1.5s infinite;
 }
 .alert-win {
   width: 500px;
@@ -167,18 +176,18 @@ button {
   font-size: 50px;
   color: red;
   font-family: "rubik bubbles", "sans-serif";
-  margin-left: 22%;
+  margin-left: 16%;
   position: absolute;
 }
 .home-btn {
-  margin-left: 22vw;
+  margin-left: 20vw;
   margin-top: 69vh;
   padding: 6px;
   width: 150px;
   border: 1px white solid;
 }
 .home-btn-win {
-  margin-left: 29vw;
+  margin-left: 24vw;
   margin-top: 69vh;
   padding: 6px;
   width: 190px;
@@ -199,4 +208,12 @@ button {
   margin-top: 150px;
   width: 70vw;
   height: 70vh;
+}
+@keyframes pulse {
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

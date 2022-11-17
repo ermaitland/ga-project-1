@@ -20,6 +20,8 @@ function init() {
   const logoAndMusic = document.querySelector(".logo");
   const cells = [];
   const levelGoal = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const glassFloor = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
+  let fallThroughGlass;
   let frogPosition = 94;
   let goalPosition;
   let lives = 2;
@@ -53,6 +55,7 @@ function init() {
     timed.disabled = true;
     reload.innerHTML = "Back to Home!";
     backgroundPlayingMusic();
+    weakGlass();
   }
 
   function reloadPage() {
@@ -93,6 +96,15 @@ function init() {
     cells[goalPosition].classList.add("goal");
   }
 
+  function weakGlass() {
+    fallThroughGlass = Math.floor(Math.random() * glassFloor.length);
+    if (cells[fallThroughGlass] === cells[goalPosition]) {
+      fallThroughGlass = Math.floor(Math.random() * glassFloor.length);
+    } else {
+      cells[fallThroughGlass].classList.add("weakGlass");
+    }
+  }
+
   function addObj(position, item) {
     cells[position].classList.add(item);
   }
@@ -127,6 +139,9 @@ function init() {
         if (y < width - 1) frogPosition += width;
         finishLevel();
         frogCollision();
+        break;
+      case 13:
+        reloadPage();
         break;
       default:
         console.log("unidentified move");
@@ -236,6 +251,7 @@ function init() {
     collision(frogPosition, "doll");
     collision(frogPosition, "mask");
     collision(frogPosition, "boss");
+    collision(frogPosition, "weakGlass");
   }
 
   function stopGame() {

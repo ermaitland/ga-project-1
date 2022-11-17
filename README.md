@@ -27,17 +27,21 @@ Requirements:
 
 - The game should be playable for one player
 - The obstacles should be auto generated
-  Suggested enhancements:
+
+Suggested enhancements:
+
 - Different difficulty levels
 - Auto generated boards
-- Two player mode on the same computer: player take turns the first to lose more lives across whole game loses.
+- Two player mode on the same computer: player take turns the first to lose more lives across whole gae loses.
 - High score board with `localStorage`
-  Challenges:
-  The difficulty here is animating the obstacles and detecting collision. There will be several timers to manage across the whole game, which can easily get out of hand.
+
+Challenges:
+
+The difficulty here is animating the obstacles and detecting collision. There will be several timers to manage across the whole game, which can easily get out of hand.
 
 # Planning
 
-I started by making a wire fame on excalidraw. This consisted of a start page and three difficulty levels. From here it was easier to write pseudocode. This gave me an outline of constants I would need to make functions and the key functions needed in order to make the game work. It also allowed to me work out a logical order in which to execute the code, insuring that everything I needed to “get” was done so before I “set”. In this particular project I didn’t use any ERDs, this was due to the wireframe and pseudocode being enough, and in conjunction with my time-boxing, I felt I had a visual idea of what, how and how long for each element.
+I started by making a wire fame on excalidraw. I have designed my game to look like an old school video game. My excalidraw consisted of a start page and three difficulty levels. From here it was easier to write pseudocode. This gave me an outline of constants I would need to make functions and the key functions needed in order to make the game work. It also allowed to me work out a logical order in which to execute the code, insuring that everything I needed to “get” was done so before I “set”. In this particular project I didn’t use any ERDs, this was due to the wireframe and pseudocode being enough, and in conjunction with my time-boxing, I felt I had a visual idea of what, how and how long for each element.
 
 _Add images_
 
@@ -51,8 +55,10 @@ The planning of each individual day as well as the overall project made it a lot
 
 I began by writing basic HTML so I could grab the correct classes or id’s in order to begin the functions in JavaScript. My pseudocode was very helpful for this as I could clearly see the necessary elements I needed to make in order to begin.
 I focused at first on the player element. Firstly making the gird and then I wrote functions to add this player to a grid, remove them from the grid and allow them to move using the keys.
-I also added in the goal. I wanted this to be a random position each game to make it more exciting for the player. I did this by:  
+I also added in the goal. I wanted this to be a random position each game to make it more exciting for the player. I did this by:
+
 const levelGoal = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
 Creating an array of all the cells the goal is suitable to be in, and then:
 
 function levelComplete() {
@@ -201,4 +207,18 @@ clearInterval(counter);
 During classwork, excalidraw was mentioned but I don’t think I fully realised the benefit of planning properly before beginning to code until the project. I found having a detailed plan and daily plans extremely beneficially for time management.
 
 I’ve also found how useful it is not to dive straight in with a huge aim, break everything up into smaller steps and divide my time between them.
-I think I have got better at troubleshooting and then that doesn’t work, or I am still confused, just talking through rough ideas can often make you realise yourself where the mistake is. Pair programming is becoming more natural to me.
+I think I have got better at troubleshooting and then that doesn’t work, or I am still confused, just talking through rough ideas can often make you realise yourself where the mistake is.
+
+# Bugs
+
+I currently have a few small problems. I am aware if you add in an object to move the opposite direction it does not work in the function I have now. If I had more time, I would build a reverseMovement function to allow for some objects to go the other way and take a negative value for direction. This would give the game an added level of complexity.
+
+# Future Improvements
+
+I currently use:
+
+window.location.reload();
+
+In order to get back to the homepage. I would like to change by; removing the classList of certain classes and add in others to get it back to the main page.
+
+I would also think about automatically going onto the level up when you complete a level. I designed it the way it is because I thought this worked best but I would like to try it in the future as I have seen it on some games, and I think it can sometimes be nice not to break the game up so much. In the end game function I could use an if else statement to see which level was being run, and dependent on that – which one to then play.
