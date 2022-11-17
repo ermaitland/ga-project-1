@@ -62,6 +62,16 @@ function init() {
     window.location.reload();
   }
 
+  function reloadPageOnEnter(e) {
+    switch (e.keyCode) {
+      case 13:
+        window.location.reload();
+        break;
+      default:
+        console.log("No comand found");
+    }
+  }
+
   function homeMusic() {
     loadMusic.src = "./music/592876__sandermotions__green-light-red-light.mp3";
     loadMusic.play();
@@ -247,10 +257,7 @@ function init() {
     collision(frogPosition, "weakGlass");
   }
 
-  function stopGame() {
-    grid.classList.remove("grid");
-    changeableInfo.style.display = "none";
-    stopMusic();
+  function noLives() {
     if (lives === 0) {
       const gameOverMessage = document.createElement("h1");
       pageSetUp.appendChild(gameOverMessage);
@@ -260,7 +267,11 @@ function init() {
       reload.classList.add("home-btn");
       reload.innerHTML = "Unlucky - Try again!";
       homeMusic();
-    } else {
+    }
+  }
+
+  function winGame() {
+    if (frogPosition === goalPosition) {
       const completedMsg = document.createElement("h1");
       pageSetUp.appendChild(completedMsg);
       completedMsg.classList.add("alert-win");
@@ -269,7 +280,35 @@ function init() {
       reload.classList.add("home-btn-win");
       reload.textContent = "Well done! See if you can win again!";
       homeMusic();
+      clearInterval(counter);
     }
+  }
+
+  function stopGame() {
+    grid.classList.remove("grid");
+    changeableInfo.style.display = "none";
+    stopMusic();
+    noLives();
+    winGame();
+    // if (lives === 0) {
+    //   const gameOverMessage = document.createElement("h1");
+    //   pageSetUp.appendChild(gameOverMessage);
+    //   gameOverMessage.classList.add("alert");
+    //   gameOverMessage.textContent = "GameOver!";
+    //   pageSetUp.classList.add("doll-img");
+    //   reload.classList.add("home-btn");
+    //   reload.innerHTML = "Unlucky - Try again!";
+    //   homeMusic();
+    // } else {
+    //   const completedMsg = document.createElement("h1");
+    //   pageSetUp.appendChild(completedMsg);
+    //   completedMsg.classList.add("alert-win");
+    //   completedMsg.textContent = "Congratulations! You completed the level!";
+    //   pageSetUp.classList.add("celebrate");
+    //   reload.classList.add("home-btn-win");
+    //   reload.textContent = "Well done! See if you can win again!";
+    //   homeMusic();
+    // }
   }
   function finishLevel() {
     if (frogPosition === goalPosition) {
@@ -281,6 +320,7 @@ function init() {
   // ***** ASSIGN EVENT LISTENER *****
   logoAndMusic.addEventListener("click", homeMusic);
   reload.addEventListener("click", reloadPage);
+  document.addEventListener("keyup", reloadPageOnEnter);
   beginner.addEventListener("click", beginnerLevel);
   intermediate.addEventListener("click", intermediateLevel);
   expert.addEventListener("click", expertLevel);
