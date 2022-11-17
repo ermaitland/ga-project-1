@@ -38,13 +38,12 @@ function init() {
       cells.push(cell);
       pageSetUp.style.flexDirection = "row";
       pageSetUp.classList.add("play-grid");
-      grid.style.border = "1px green solid";
       infoBox.classList.add("playing");
       logoAndMusic.style.display = "none";
     }
   }
 
-  // ***** FUNCTION TO START GAME, MUSIC & RELOAD *****
+  // ***** FUNCTIONS TO START GAME, MUSIC & RELOAD *****
   function startGame() {
     createGrid();
     addObj(frogPosition, "frog");
@@ -55,6 +54,7 @@ function init() {
     expert.disabled = true;
     timed.disabled = true;
     reload.innerHTML = "Back to Home!";
+    reload.style.border = "1px white solid";
     backgroundPlayingMusic();
   }
 
@@ -134,9 +134,6 @@ function init() {
         if (y < width - 1) frogPosition += width;
         finishLevel();
         frogCollision();
-        break;
-      case 13:
-        reloadPage();
         break;
       default:
         console.log("unidentified move");

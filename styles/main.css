@@ -7,12 +7,8 @@ body {
   -webkit-transform: rotate(90deg);
   height: 30vh;
   width: 9vw;
-  margin-top: 0px;
-  padding-top: 0px;
-  margin-bottom: 0px;
-  padding-bottom: 0%;
   cursor: pointer;
-  top: 85px;
+  top: 78px;
   position: relative;
 }
 .start-page {
@@ -21,26 +17,21 @@ body {
   width: 100vw;
   height: 90vh;
   align-items: center;
-  justify-content: flex-start;
-  align-content: center;
   padding: 0px;
 }
 .title {
   font-family: "rubik bubbles", sans-serif;
   text-align: center;
   margin-top: 0px;
-  border-bottom: 3px;
-  padding: 0px;
   font-size: 90px;
-  top: 10px;
+  top: 10;
   position: absolute;
 }
 button {
   font-family: "Sono", "sans-serif";
   margin-top: 10px;
   border-radius: 5px;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding: 4px 6px;
   color: greenyellow;
   background-color: black;
   border: 0.5px greenyellow solid;
@@ -51,6 +42,7 @@ button {
   color: hotpink;
   box-shadow: none;
   border: 0.5px black solid;
+  cursor: pointer;
 }
 .page-layout {
   display: flex;
@@ -58,7 +50,7 @@ button {
   height: 70vh;
 }
 .play-grid {
-  margin-top: 110px;
+  margin-top: 125px;
 }
 
 .infomation-box {
@@ -69,14 +61,10 @@ button {
   text-align: center;
   justify-content: center;
 }
-.infomation-box p {
-  margin-top: 0px;
-}
 .playing {
   margin-right: 15%;
   margin-left: 2%;
   width: 400px;
-  margin-top: 60px;
 }
 .phase-in-out-info {
   display: flex;
@@ -84,6 +72,7 @@ button {
   align-items: center;
 }
 .phase-in-out-info p {
+  margin-top: 0;
   padding: 0px;
   font-size: 15px;
 }
@@ -105,7 +94,6 @@ button {
 .grid div {
   border: 1px green solid;
   flex-grow: 1;
-  /* height 10% if want inside grid */
   height: 9.6%;
   width: 9%;
   background-image: url(../images/blackbackground.jpeg);
@@ -114,7 +102,7 @@ button {
 }
 .grid div.weakGlass {
   background-image: url(../images/glassFloor.jpeg);
-  background-size: conver;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 .grid div.frog {
@@ -173,20 +161,20 @@ button {
   font-size: 50px;
   color: red;
   font-family: "rubik bubbles", "sans-serif";
-  margin-left: 21vw;
+  margin-left: 20vw;
   position: absolute;
   animation: pulse 1.5s infinite;
 }
 .home-btn {
   margin-left: 28vw;
-  margin-top: 70vh;
+  margin-top: 78vh;
   padding: 6px;
   width: 150px;
   border: 1px white solid;
 }
 .home-btn-win {
-  margin-left: 46vw;
-  margin-top: 70vh;
+  margin-left: 39vw;
+  margin-top: 78vh;
   padding: 6px;
   width: 190px;
   border: 1px white solid;
@@ -197,13 +185,13 @@ button {
   background-repeat: no-repeat;
   width: 100vh;
   height: 70vh;
-  margin-top: 150px;
+  margin-top: 130px;
 }
 .celebrate {
-  background-image: url(../images/celebrate.gif);
+  background-image: url(../images/squid-win.gif);
   background-size: cover;
   background-repeat: no-repeat;
-  margin-top: 150px;
+  margin-top: 130px;
   width: 70vw;
   height: 70vh;
 }
