@@ -97,11 +97,7 @@ function init() {
 
   function weakGlass() {
     fallThroughGlass = Math.floor(Math.random() * glassFloor.length);
-    if (cells[fallThroughGlass] === cells[goalPosition]) {
-      fallThroughGlass = Math.floor(Math.random() * glassFloor.length);
-    } else {
-      cells[fallThroughGlass].classList.add("weakGlass");
-    }
+    cells[fallThroughGlass + 50].classList.add("weakGlass");
   }
 
   function addObj(position, item) {
@@ -204,7 +200,7 @@ function init() {
     movement(19, "boss", 19, 10, 1, 650);
     movement(15, "boss", 19, 10, 1, 650);
     movement(22, "boss", 29, 20, 1, 650);
-    movement(47, "doll", 59, 40, 1, 100);
+    movement(47, "doll", 49, 30, 1, 100);
   }
 
   let count = 10;

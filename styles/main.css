@@ -32,7 +32,7 @@ body {
   border-bottom: 3px;
   padding: 0px;
   font-size: 90px;
-  top: 30px;
+  top: 10px;
   position: absolute;
 }
 button {
@@ -100,22 +100,21 @@ button {
   height: 100%;
   justify-content: center;
   width: 600px;
-  height: 500px;
+  height: 600px;
 }
 .grid div {
-  border: 2px green solid;
-  /* background-color: white; */
+  border: 1px green solid;
   flex-grow: 1;
   /* height 10% if want inside grid */
-  height: 9%;
+  height: 9.6%;
   width: 9%;
   background-image: url(../images/blackbackground.jpeg);
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 .grid div.weakGlass {
   background-image: url(../images/glassFloor.jpeg);
-  background-size: cover;
+  background-size: conver;
   background-repeat: no-repeat;
 }
 .grid div.frog {
@@ -125,7 +124,7 @@ button {
 }
 .grid div.guard {
   background-image: url(../images/guard.jpeg);
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 .grid div.mask {
@@ -214,5 +213,41 @@ button {
   }
   100% {
     transform: scale(1);
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .title {
+    display: none;
+  }
+  .phase-in-out-info {
+    width: 400px;
+    margin-right: 5%;
+  }
+  .grid {
+    width: 500px;
+    height: 400px;
+    margin-right: 10%;
+  }
+  .grid div {
+    width: 9.3%;
+    height: 9.3%;
+  }
+}
+@media only screen and (max-width: 850px) {
+  .logo {
+    display: none;
+  }
+  .phase-in-out-info {
+    width: 200px;
+    margin-right: 10x;
+  }
+  .grid {
+    margin-right: 30%;
+    width: 400px;
+    height: 300px;
+  }
+  .grid div {
+    width: 9%;
+    height: 9.2%;
   }
 }
