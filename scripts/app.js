@@ -118,7 +118,7 @@ function init() {
     cells[position].classList.remove(item);
   }
 
-  // ! Move the Objects
+  // ***** MOVE THE OBJECTS *****
   function moveFrog(e) {
     frogMusic();
     removeObj(frogPosition, "frog");
@@ -290,25 +290,6 @@ function init() {
     stopMusic();
     noLives();
     winGame();
-    // if (lives === 0) {
-    //   const gameOverMessage = document.createElement("h1");
-    //   pageSetUp.appendChild(gameOverMessage);
-    //   gameOverMessage.classList.add("alert");
-    //   gameOverMessage.textContent = "GameOver!";
-    //   pageSetUp.classList.add("doll-img");
-    //   reload.classList.add("home-btn");
-    //   reload.innerHTML = "Unlucky - Try again!";
-    //   homeMusic();
-    // } else {
-    //   const completedMsg = document.createElement("h1");
-    //   pageSetUp.appendChild(completedMsg);
-    //   completedMsg.classList.add("alert-win");
-    //   completedMsg.textContent = "Congratulations! You completed the level!";
-    //   pageSetUp.classList.add("celebrate");
-    //   reload.classList.add("home-btn-win");
-    //   reload.textContent = "Well done! See if you can win again!";
-    //   homeMusic();
-    // }
   }
   function finishLevel() {
     if (frogPosition === goalPosition) {

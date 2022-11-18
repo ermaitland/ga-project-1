@@ -173,7 +173,7 @@ button {
   border: 1px white solid;
 }
 .home-btn-win {
-  margin-left: 39vw;
+  margin-left: 43vw;
   margin-top: 78vh;
   padding: 6px;
   width: 190px;
@@ -183,6 +183,7 @@ button {
   background-image: url(../images/dance-doll.webp);
   background-size: cover;
   background-repeat: no-repeat;
+  border: 3px green solid;
   width: 100vh;
   height: 70vh;
   margin-top: 130px;
@@ -191,6 +192,7 @@ button {
   background-image: url(../images/squid-win.gif);
   background-size: cover;
   background-repeat: no-repeat;
+  border: 3px green solid;
   margin-top: 130px;
   width: 70vw;
   height: 70vh;
@@ -201,6 +203,26 @@ button {
   }
   100% {
     transform: scale(1);
+  }
+}
+@media only screen and (max-width: 1800px) {
+  .alert {
+    font-size: 55px;
+    margin-left: 17vw;
+    position: absolute;
+    animation: pulse 1.5s infinite;
+  }
+  .alert-win {
+    font-size: 45px;
+    margin-left: 17vw;
+  }
+  .home-btn {
+    margin-left: 27vw;
+    margin-top: 79vh;
+  }
+  .home-btn-win {
+    margin-left: 41vw;
+    margin-top: 79vh;
   }
 }
 @media only screen and (max-width: 1200px) {
