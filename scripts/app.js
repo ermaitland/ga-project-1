@@ -43,7 +43,7 @@ function init() {
     }
   }
 
-  // ***** FUNCTIONS TO START GAME, MUSIC & RELOAD *****
+  // ***** FUNCTIONS TO START GAME, RELOAD & MUSIC *****
   function startGame() {
     createGrid();
     addObj(frogPosition, "frog");
@@ -216,11 +216,11 @@ function init() {
     currentLevel.textContent = "Beat the Clock!";
     intermediateLevel();
     countdownMusic();
-    screen.innerHTML = `You have ${count} second left!`;
+    screen.innerHTML = `${count}`;
     counter = setInterval(() => {
       if (count >= 1) {
         count--;
-        screen.innerHTML = `You have ${count} seconds left!`;
+        screen.innerHTML = `${count} `;
       } else {
         lives = 0;
         stopGame();
