@@ -220,7 +220,7 @@ function init() {
     counter = setInterval(() => {
       if (count >= 1) {
         count--;
-        screen.innerHTML = `${count} `;
+        screen.innerHTML = `${count}`;
       } else {
         lives = 0;
         stopGame();
