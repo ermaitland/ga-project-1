@@ -2,7 +2,7 @@
 
 # Description
 
-This is a project I undertook in the fourth week of the Software Engineering Immersive at General Assembly. The first three weeks were focused on HTML, CSS and JavaScript and this project allowed me to bring what I had learnt together. I had to create a game using HTML, CSS and JavaScript. The game had to be playable for one player and have obstacles which are auto generated.
+This is a project I undertook in the fourth week of the Software Engineering Immersive at General Assembly. The first three weeks were focused on HTML, CSS and JavaScript and this project allowed me to bring together what I had learnt. I had to create a game using HTML, CSS and JavaScript. The game had to be playable for one player and have obstacles which are auto generated.
 
 # Deployment link
 
@@ -55,7 +55,7 @@ Requirements:
 
 # Planning
 
-I started by making a wirefame on excalidraw. This consisted of a start page and three difficulty levels. From here it was easier to write pseudocode. This gave me an outline of constants I would need to make functions and the key functions needed in order to make the game work. It also allowed me to work out a logical order in which to execute the code, ensuring that everything I needed to “get” was done so before I “set”. In this particular project I didn’t use any ERDs, this was due to the wireframe and pseudocode being enough, and in conjunction with my time-boxing, I felt I had a visual idea of what, how and how long for each element.
+I started by making a wirefame on excalidraw. This consisted of a start page and three difficulty levels. From here it was easier to write pseudocode. This gave me an outline of constants required to make specific functions and the key functions needed in order to make the game work. It also allowed me to work out a logical order in which to execute the code, ensuring that everything I needed to “get” was done so before I “set”. In this particular project I didn’t use any ERDs, this was due to the wireframe and pseudocode being enough, and in conjunction with my time-boxing, I felt I had a visual idea of what, how and how long for each element.
 
 <img alt='Full plan of project-1' src='./assets_for_ReadMe/Screenshot 2022-11-12 at 10.13.05.png'>
 
@@ -159,7 +159,7 @@ function frogCollision() {
 
 # Challenges
 
-One challenge was the movement function for the automated objects. I created one which only took the element it was applied to into account, however I quickly realised this function would be re-written many times.
+One challenge was the movement function for the automated objects. I created one which only took the element it was applied to into account, however I quickly realised this function would be rewritten many times.
 
 I had to rethink a way to group these functions into one, easy to read function. One which could be reused for all my movable objects. This meant creating a function which could take the object it was trying to move, give it an end point, a start point, a distance to move at a time and a speed. This was a challenge because I wanted to keep it as simple as possible while being a function for many different variables. I used a set interval where you could set the interval time as well as adding in my collision function names into the function to allow for constant checking if the object and the frog class were in the same cell.
 
@@ -244,7 +244,7 @@ I think I have got better at troubleshooting and if that doesn’t work, or I am
 
 # Bugs
 
-I currently have a few small problems. I am aware if you add in an object to move the opposite direction it does not work in the function I have now. If I had more time, I would build a reverseMovement function to allow for some objects to go the other way and take a negative value for direction. This would give the game an added level of complexity.
+I currently have a few small problems. I am aware if you add in an object to move the opposite direction it does not work in the function I have now. If I had more time, I would build a reverseMovement function to allow for some objects to go the other way and take a negative value for direction. This would give the game an added level of complexity. I am also aware the frog noises are still produced if you click the arrow buttons even if you’re not playing a game.
 
 # Future Improvements
 
