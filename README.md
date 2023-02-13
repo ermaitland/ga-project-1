@@ -41,17 +41,31 @@ HTML, CSS, JavaScript
 # Brief
 
 The idea is to guide your Frog safely to the top of the screen. To make things more challenging there are numerous moving obstacles that the frog must avoid, to reach the destination.
+Technical Requirements
+Your app must:
+
+- Render a game in the browser
+- Design logic for winning & visually display which player won
+- Include separate HTML / CSS / JavaScript files
+- Stick with KISS (Keep It Simple Stupid) and DRY (Don't Repeat Yourself) principles
+- Use \*\*Javascript for DOM manipulation
+- Deploy your game online, where the rest of the world can access it
+- Use semantic markup for HTML and CSS (adhere to best practices)
+
 Requirements:
 
 - The game should be playable for one player
 - The obstacles should be auto generated
-  Suggested enhancements:
+
+Suggested enhancements:
+
 - Different difficulty levels
 - Auto generated boards
 - Two player mode on the same computer: players take turns the first to lose more lives across the whole game loses.
 - High score board with `localStorage`
-  Challenges:
-  The difficulty here is animating the obstacles and detecting collisions. There will be several timers to manage across the whole game, which can easily get out of hand.
+
+Challenges:
+The difficulty here is animating the obstacles and detecting collisions. There will be several timers to manage across the whole game, which can easily get out of hand.
 
 # Planning
 
