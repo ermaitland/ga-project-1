@@ -41,7 +41,8 @@ HTML, CSS, JavaScript
 # Brief
 
 The idea is to guide your Frog safely to the top of the screen. To make things more challenging there are numerous moving obstacles that the frog must avoid, to reach the destination.
-Technical Requirements
+
+Technical Requirements.
 Your app must:
 
 - Render a game in the browser
