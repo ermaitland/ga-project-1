@@ -81,7 +81,10 @@ The planning of each individual day as well as the overall project made it a lot
 # Build/Code Process
 
 I began by writing basic HTML so I could grab the correct classes or id’s in order to begin the functions in JavaScript. My pseudocode was very helpful for this as I could clearly see the necessary elements I needed to make in order to begin.
-I focused at first on the player element. First I made the grid and then I wrote functions to add this player to a grid, remove them from the grid and allow them to move using the keys.
+
+### Firstly:
+
+I focused on the player element. I made the grid and then I wrote functions to add this player to a grid, remove them from the grid and allow them to move using the keys.
 I also added in the goal. I wanted the goal to be a random position during each game. This would make the game more exciting for the player. I did this by:
 
 ```js
@@ -98,6 +101,8 @@ function levelComplete() {
 ```
 
 This allows a random whole number within the available cells to be selected, then this is assigned the class of “goal”.
+
+### Secondly:
 
 I could then move onto an object automatically moving through the grid. I realised this function would be repeated many times with only one or two values changed so in order to make it more readable I produced a single function which took multiple arguments. This function adds and moves all of the objects I have on my grid.
 
@@ -176,9 +181,9 @@ function frogCollision() {
 
 One challenge was the movement function for the automated objects. I created one which only took the element it was applied to into account, however I quickly realised this function would be rewritten many times.
 
-I had to rethink a way to group these functions into one, easy to read function. One which could be reused for all my movable objects. This meant creating a function which could take the object it was trying to move, give it an end point, a start point, a distance to move at a time and a speed. This was a challenge because I wanted to keep it as simple as possible while being a function for many different variables. I used a set interval where you could set the interval time as well as adding in my collision function names into the function to allow for constant checking if the object and the frog class were in the same cell.
+I had to rethink a way to group these functions into one, easy to read function, one which could be reused for all my movable objects. This meant creating a function which could take the object it was trying to move, give it an end point, a start point, a distance to move at a time and a speed. This was a challenge because I wanted to keep it as simple as possible while being a function for many different variables. I used a set interval where you could set the interval time as well as adding in my collision function names into the function to allow for constant checking if the object and the frog class were in the same cell.
 
-Creating the movement function was a challenge, initially it didn’t work. So I broke the task down into smaller blocks and started creating a function which first added the item. I then set an interval in the function which increased the position by one and added the object in the new position. I continued to slowly add one step within the function until it was how I had planned. Breaking the code into bite size chunks.
+Creating the movement function was a challenge, initially it didn’t work. So I broke the task down into smaller blocks and started creating a function which first added the item. I then set an interval in the function which increased the position by one and added the object in the new position. I continued to slowly add one step within the function until it was how I had planned; breaking the code into bite size chunks.
 
 Another challenge I faced was building a grid which looked as I wanted it too. This involved me adding a class to a div which incorporated the text I wanted on the page as well as the grid which was being made. I would then set this class as a flexbox and change the direction of the flex as I add the grid.
 
