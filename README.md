@@ -36,7 +36,7 @@ This was a solo project which I had a week to complete.
 
 # Technologies Used
 
-HTML, CSS, JavaScript
+HTML, CSS, JavaScript, Git, GitHub, Excalidraw
 
 # Brief
 
@@ -49,7 +49,7 @@ Your app must:
 - Design logic for winning & visually display which player won
 - Include separate HTML / CSS / JavaScript files
 - Stick with KISS (Keep It Simple Stupid) and DRY (Don't Repeat Yourself) principles
-- Use \*\*Javascript for DOM manipulation
+- Use Javascript for DOM manipulation
 - Deploy your game online, where the rest of the world can access it
 - Use semantic markup for HTML and CSS (adhere to best practices)
 
@@ -99,7 +99,7 @@ function levelComplete() {
 
 This allows a random whole number within the available cells to be selected, then this is assigned the class of “goal”.
 
-I could then move onto an object automatically moving through the grid. I realised this function would be repeated many times with only or two values changed so in order to make it more readable I produced a single function which took multiple arguments. This function adds and moves all of the objects I have on my grid.
+I could then move onto an object automatically moving through the grid. I realised this function would be repeated many times with only one or two values changed so in order to make it more readable I produced a single function which took multiple arguments. This function adds and moves all of the objects I have on my grid.
 
 ```js
 function movement(
@@ -251,7 +251,7 @@ function againstTheClock() {
 
 During classwork, excalidraw was mentioned but I don’t think I fully realised the benefit of planning properly before beginning to code until the project. I found having a detailed plan and daily plans extremely beneficial for time management.
 
-Throughout the project I got more comfortable using JavaScript. Previous to this project, I had mainly used it on much smaller homeworks ot labs. To be able to use it and build a final project really improved my confidence and felt great. Using setInterval() became a lot clearer when it was in a practical setting than just via lecutres.
+Throughout the project I got more comfortable using JavaScript. Previous to this project, I had mainly used it on much smaller homeworks or labs. To be able to use it and build a final project really improved my confidence and felt great. Using setInterval() became a lot clearer when it was in a practical setting than just via lecutres.
 
 I’ve also found how useful it is not to dive straight in with a huge aim, break everything up into smaller steps and divide my time between them.
 
