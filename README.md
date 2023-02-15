@@ -70,7 +70,7 @@ The difficulty here is animating the obstacles and detecting collisions. There w
 
 # Planning
 
-I started by making a wirefame on excalidraw. This consisted of a start page and three difficulty levels. From here it was easier to write pseudocode. This gave me an outline of constants required to make specific functions and the key functions needed in order to make the game work. It also allowed me to work out a logical order in which to execute the code, ensuring that everything I needed to “get” was done so before I “set”. In this particular project I didn’t use any ERDs, this was due to the wireframe and pseudocode being enough, and in conjunction with my time-boxing, I felt I had a visual idea of what, how and how long for each element.
+I started by making a wirefame on excalidraw. This consisted of a start page and three difficulty levels. From here, it was easier to write pseudocode. This gave me an outline of constants required to make specific functions and the key functions needed in order to make the game work. It also allowed me to work out a logical order in which to execute the code, ensuring that everything I needed to “get” was done so before I “set”. In this particular project I didn’t use any ERDs, this was due to the wireframe and pseudocode being enough, and in conjunction with my time-boxing, I felt I had a visual idea of what, how and how long for each element.
 
 <img alt='Full plan of project-1' src='./assets_for_ReadMe/Screenshot 2022-11-12 at 10.13.05.png'>
 
